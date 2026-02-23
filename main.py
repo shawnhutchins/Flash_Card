@@ -10,12 +10,16 @@ images = ["images/card_front.png",
           "images/right.png",
           "images/wrong.png"]
 
+# ------------------------------ User Interface --------------------------- #
+
 window = Tk()
 window.title("Flash Card")
 window.configure(padx=50, pady=50, bg=BACKGROUND_COLOR)
 
-# ------------------------------ User Interface --------------------------- #
+flashcard_canvas = Canvas(master=window)
 
 # ---------------------------------- Layout ------------------------------- #
+
+flashcard_canvas.grid(row=0, column=0, columnspan=2)
 
 window.mainloop()
