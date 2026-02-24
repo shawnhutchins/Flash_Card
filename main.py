@@ -1,6 +1,7 @@
 from tkinter import *
 
 # ---------------------------------- Tasks -------------------------------- #
+#Try opening the images to prevent an error
 
 #Constants
 BACKGROUND_COLOR = "#B1DDC6"
