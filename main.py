@@ -21,6 +21,9 @@ flashcard_canvas = Canvas(master=window, width=800, height=526, bg=BACKGROUND_CO
 flashcard_initial_image = PhotoImage(file=images[0])
 flashcard_canvas.create_image(400, 263, image=flashcard_initial_image)
 
+language_text = flashcard_canvas.create_text(400, 130, text="Initial Language", fill="black")
+word_text = flashcard_canvas.create_text(400, 263, text="Initial Word", fill="black")
+
 wrong_button_image = PhotoImage(file=images[2])
 wrong_button = Button(master=window, image=wrong_button_image, borderwidth=0, highlightthickness=0, bg=BACKGROUND_COLOR)
 
