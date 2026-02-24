@@ -21,13 +21,18 @@ flashcard_canvas = Canvas(master=window, width=800, height=526, bg=BACKGROUND_CO
 flashcard_initial_image = PhotoImage(file=images[0])
 flashcard_canvas.create_image(400, 263, image=flashcard_initial_image)
 
+wrong_button_image = PhotoImage(file=images[2])
+wrong_button = Button(master=window, image=wrong_button_image, borderwidth=0, highlightthickness=0, bg=BACKGROUND_COLOR)
+
 right_button_image = PhotoImage(file=images[3])
-right_button = Button(master=window, image=right_button_image, borderwidth=0, highlightthickness=0)
+right_button = Button(master=window, image=right_button_image, borderwidth=0, highlightthickness=0, bg=BACKGROUND_COLOR)
 
 # ---------------------------------- Layout ------------------------------- #
 
 flashcard_canvas.grid(row=0, column=0, columnspan=2)
 
+#Buttons
+wrong_button.grid(row=1, column=0)
 right_button.grid(row=1, column=1)
 
 window.mainloop()
