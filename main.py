@@ -8,8 +8,8 @@ BACKGROUND_COLOR = "#B1DDC6"
 
 images = ["images/card_front.png",
           "images/card_back.png",
-          "images/right.png",
-          "images/wrong.png"]
+          "images/wrong.png",
+          "images/right.png"]
 
 # ------------------------------ User Interface --------------------------- #
 
@@ -21,8 +21,13 @@ flashcard_canvas = Canvas(master=window, width=800, height=526, bg=BACKGROUND_CO
 flashcard_initial_image = PhotoImage(file=images[0])
 flashcard_canvas.create_image(400, 263, image=flashcard_initial_image)
 
+right_button_image = PhotoImage(file=images[3])
+right_button = Button(master=window, image=right_button_image, borderwidth=0, highlightthickness=0)
+
 # ---------------------------------- Layout ------------------------------- #
 
 flashcard_canvas.grid(row=0, column=0, columnspan=2)
+
+right_button.grid(row=1, column=1)
 
 window.mainloop()
