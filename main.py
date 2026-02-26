@@ -1,4 +1,5 @@
 from tkinter import *
+import csv
 
 # ---------------------------------- Tasks -------------------------------- #
 #Try opening the images to prevent an error
@@ -6,10 +7,17 @@ from tkinter import *
 #Constants
 BACKGROUND_COLOR = "#B1DDC6"
 
+data = []
 images = ["images/card_front.png",
           "images/card_back.png",
           "images/wrong.png",
           "images/right.png"]
+
+with open("data/french_words.csv", "r", encoding="utf-8") as csv_file:
+    reader = csv.reader(csv_file)
+    next(reader, None)
+    for row in reader:
+        data.append(row)
 
 # ------------------------------ User Interface --------------------------- #
 
