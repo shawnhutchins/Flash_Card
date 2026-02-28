@@ -1,5 +1,5 @@
 from tkinter import *
-import csv
+import pandas
 
 # ---------------------------------- Tasks -------------------------------- #
 #Try opening the images to prevent an error
@@ -7,17 +7,14 @@ import csv
 #Constants
 BACKGROUND_COLOR = "#B1DDC6"
 
-data = []
 images = ["images/card_front.png",
           "images/card_back.png",
           "images/wrong.png",
           "images/right.png"]
 
-with open("data/french_words.csv", "r", encoding="utf-8") as csv_file:
-    reader = csv.reader(csv_file)
-    next(reader, None)
-    for row in reader:
-        data.append(row)
+dataframe = pandas.read_csv("data/french_words.csv")
+data = dataframe.to_dict(orient="records")
+print(data)
 
 # ------------------------------ User Interface --------------------------- #
 
