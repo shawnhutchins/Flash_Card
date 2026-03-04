@@ -20,13 +20,14 @@ dataframe = pandas.read_csv("data/french_words.csv")
 data = dataframe.to_dict(orient="records")
 current_flashcard = {}
 
+#Updates the flashcard canvas image text to card back
 def flip_flashcard():
     global current_flashcard
     flashcard_canvas.itemconfig(flashcard_canvas_image, image=flashcard_back_image)
     flashcard_canvas.itemconfig(language_text, text=LANGUAGE_TWO)
     flashcard_canvas.itemconfig(word_text, text=current_flashcard[LANGUAGE_TWO])
 
-#Updates the text values on the canvas with a random word
+#Updates the flashcard canvas image text to card front and waits FLIP_DELAY_MS then calls flip
 def next_flashcard():
     global current_flashcard
     flashcard_canvas.itemconfig(flashcard_canvas_image, image=flashcard_front_image)
@@ -41,6 +42,7 @@ window = Tk()
 window.title("Flash Card")
 window.configure(padx=50, pady=50, bg=BACKGROUND_COLOR)
 
+#Canvas PhotoImages
 flashcard_front_image = PhotoImage(file=images[0])
 flashcard_back_image = PhotoImage(file=images[1])
 
