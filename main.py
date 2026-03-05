@@ -29,13 +29,14 @@ def flip_flashcard():
 
 #Updates the flashcard canvas image text to card front and waits FLIP_DELAY_MS then calls flip
 def next_flashcard():
-    global current_flashcard
+    global current_flashcard, flip_timer
+    window.after_cancel(flip_timer)
     flashcard_canvas.itemconfig(flashcard_canvas_image, image=flashcard_front_image)
     current_flashcard = random.choice(data)
     flashcard_canvas.itemconfig(language_text, text=LANGUAGE_ONE, fill="black")
     flashcard_canvas.itemconfig(word_text, text=current_flashcard[LANGUAGE_ONE], fill="black")
 
-    window.after(FLIP_DELAY_MS, flip_flashcard)
+    flip_timer = window.after(FLIP_DELAY_MS, flip_flashcard)
 
 # ------------------------------ User Interface --------------------------- #
 window = Tk()
@@ -68,7 +69,8 @@ flashcard_canvas.grid(row=0, column=0, columnspan=2)
 wrong_button.grid(row=1, column=0)
 right_button.grid(row=1, column=1)
 
-#Initializing flashcard_canvas text
+#Initializing flashcard_canvas text and flip_timer
+flip_timer = window.after(0, lambda: None)
 next_flashcard()
 
 window.mainloop()
