@@ -24,16 +24,16 @@ current_flashcard = {}
 def flip_flashcard():
     global current_flashcard
     flashcard_canvas.itemconfig(flashcard_canvas_image, image=flashcard_back_image)
-    flashcard_canvas.itemconfig(language_text, text=LANGUAGE_TWO)
-    flashcard_canvas.itemconfig(word_text, text=current_flashcard[LANGUAGE_TWO])
+    flashcard_canvas.itemconfig(language_text, text=LANGUAGE_TWO, fill="white")
+    flashcard_canvas.itemconfig(word_text, text=current_flashcard[LANGUAGE_TWO], fill="white")
 
 #Updates the flashcard canvas image text to card front and waits FLIP_DELAY_MS then calls flip
 def next_flashcard():
     global current_flashcard
     flashcard_canvas.itemconfig(flashcard_canvas_image, image=flashcard_front_image)
     current_flashcard = random.choice(data)
-    flashcard_canvas.itemconfig(language_text, text=LANGUAGE_ONE)
-    flashcard_canvas.itemconfig(word_text, text=current_flashcard[LANGUAGE_ONE])
+    flashcard_canvas.itemconfig(language_text, text=LANGUAGE_ONE, fill="black")
+    flashcard_canvas.itemconfig(word_text, text=current_flashcard[LANGUAGE_ONE], fill="black")
 
     window.after(FLIP_DELAY_MS, flip_flashcard)
 
