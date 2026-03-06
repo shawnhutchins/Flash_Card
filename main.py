@@ -18,6 +18,7 @@ images = ["images/card_front.png",
 
 dataframe = pandas.read_csv("data/french_words.csv")
 data = dataframe.to_dict(orient="records")
+words_to_learn = []
 current_flashcard = {}
 
 #Updates the flashcard canvas image text to card back
